@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct User: Codable, Identifiable {
-    var id = UUID()
+    var id: String
     var isActive: Bool
     var name: String
     var age: Int
@@ -17,11 +17,11 @@ struct User: Codable, Identifiable {
     var email: String
     var address: String
     var about: String
-    var registered: Date
+    var registered: String
     var tags : [String]
     var friends: [Friend]
     
-    init(id: UUID, isActive: Bool, name: String, age: Int, company: String, email: String, address: String, about: String, registered: Date, tags: [String], friends: [Friend]) {
+    init(id: String, isActive: Bool, name: String, age: Int, company: String, email: String, address: String, about: String, registered: String, tags: [String], friends: [Friend]) {
         self.id = id
         self.isActive = isActive
         self.name = name

@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 struct Friend: Codable, Identifiable {
-    var id = UUID()
+    var id: String
     var name: String
     
-    init(id: UUID, name: String) {
+    init(id: String, name: String) {
         self.id = id
         self.name = name
     }
