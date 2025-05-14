@@ -13,7 +13,7 @@
             
 //            async = This function might take some time, like                  cooking or downloading.
             
-//            await = Wait for something to finish, but don’t stop              everything while we wait.
+//            await = Wait for something to finish, but don’t               stop everything while we wait.
 
 import SwiftUI
 
@@ -27,6 +27,8 @@ struct ContentView: View {
                 Section("Name"){
                     Text(user.name)
                         .font(.headline)
+                    
+                    Text(user.registered, format: .dateTime)
                 }
                 Section("Status"){
                     Text(user.isActive ? "Active" : "Inactive")
@@ -50,6 +52,9 @@ struct ContentView: View {
         
         
         // Check if URL is valid
+        
+        // guard = be carefull
+        
         guard let url = URL(string:"https://www.hackingwithswift.com/samples/friendface.json") else {
             print("Invalid URL")
             return
@@ -59,10 +64,15 @@ struct ContentView: View {
                 // try waiting for the data to download
                 let (data, _) = try await URLSession.shared.data(from: url)
                 
+                
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                
                 // turn data into a User object
-                let decodedUser = try JSONDecoder().decode([User].self, from: data )
+                let decodedUser = try decoder.decode([User].self, from: data )
                 // add new User object to array
                     users = decodedUser
+                
                 
             } catch {
                 // if anything goes wrong
