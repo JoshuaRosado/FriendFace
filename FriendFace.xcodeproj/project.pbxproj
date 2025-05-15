@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A296EDA42DD6727500D9B1F7 /* DecodedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296EDA32DD6727500D9B1F7 /* DecodedView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A296ED822DD0071200D9B1F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		A296ED712DD0070F00D9B1F7 /* FriendFace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendFace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A296ED812DD0071200D9B1F7 /* FriendFaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FriendFaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A296ED8B2DD0071200D9B1F7 /* FriendFaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FriendFaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A296EDA32DD6727500D9B1F7 /* DecodedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		A296ED682DD0070F00D9B1F7 = {
 			isa = PBXGroup;
 			children = (
+				A296EDA32DD6727500D9B1F7 /* DecodedView.swift */,
 				A296ED732DD0070F00D9B1F7 /* FriendFace */,
 				A296ED842DD0071200D9B1F7 /* FriendFaceTests */,
 				A296ED8E2DD0071200D9B1F7 /* FriendFaceUITests */,
@@ -236,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A296EDA42DD6727500D9B1F7 /* DecodedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
