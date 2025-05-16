@@ -42,13 +42,18 @@ struct DecodedView: View {
             return
         }
         do{
-            
+            // try to wait for the data to load
             let (data, _) = try await URLSession.shared.data(from: url)
             
+            // make our decoder
+            // and add the date using dateDecodingStrategy
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
             
+            // try creating a User from data
             let decodedData = try decoder.decode([User].self,from: data)
+            // add the user created to our  [Users]()
+            users = decodedData
         }
         catch{
             print("\(error.localizedDescription)")
