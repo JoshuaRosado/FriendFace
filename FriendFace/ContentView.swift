@@ -36,7 +36,8 @@ struct ContentView: View {
             }
             .navigationDestination(for: User.self){
                 selection in
-                Text("hello \(selection.name)")
+                DetailView(user: selection)
+                
             }
             .navigationTitle("User Info")
             .navigationBarTitleDisplayMode(.inline)

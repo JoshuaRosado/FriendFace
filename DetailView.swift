@@ -15,14 +15,15 @@ struct DetailView: View {
         VStack{
             
             Text("\(user.name)")
-                .font(.headline)
-                .padding(.bottom, 50)
+                .font(.system(size: 24, weight: .medium))
+                .padding(.bottom, 15)
+                .padding(.top)
             ZStack{
                 RoundedRectangle(cornerRadius: 20.0)
                     .opacity(0.03)
                 
                 
-                VStack(alignment: .leading){
+                VStack(alignment: .leading, spacing: 10){
                     Text("ID: \(user.id)")
                     
                     Text("Age: \(user.age)")
@@ -44,10 +45,11 @@ struct DetailView: View {
                     Text("Friends: \(user.friends)")
                     
                 }
-                .font(.callout)
-                .frame(width: 300, alignment: .leading)
+                .font(.subheadline)
+                .frame(width: 325, alignment: .leading)
+                .padding()
             }
-            .frame(height: 500)
+            .frame(height: 600)
             .padding()
             .padding(.bottom,50)
             
