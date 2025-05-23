@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import SwiftData
 import SwiftUI
 
-struct User: Identifiable, Codable, Hashable {
+@Model
+class User: Identifiable {
     var id: String
     var isActive: Bool
     var name: String

@@ -7,8 +7,12 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
-struct Friend: Identifiable, Codable, Hashable {
+
+@Model
+
+class Friend: Identifiable {
     var id: String
     var name: String
     
