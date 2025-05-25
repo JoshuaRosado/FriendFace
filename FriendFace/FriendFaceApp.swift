@@ -14,6 +14,7 @@ struct FriendFaceApp: App {
         WindowGroup {
             ContentView()
         }
+        // Create a container
         .modelContainer(for: User.self)
     }
 }
