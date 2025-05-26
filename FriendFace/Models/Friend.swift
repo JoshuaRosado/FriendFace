@@ -4,20 +4,45 @@
 //
 //  Created by Joshua Rosado Olivencia on 5/10/25.
 //
+//
 
 import Foundation
-import SwiftUI
 import SwiftData
 
-
 @Model
-
-class Friend: Identifiable {
+final class Friend: Identifiable, Codable, Hashable {
     var id: String
     var name: String
-    
+
     init(id: String, name: String) {
         self.id = id
         self.name = name
+    }
+
+    // MARK: - Codable conformance
+    enum CodingKeys: String, CodingKey {
+        case id, name
+    }
+
+    required convenience init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let id = try container.decode(String.self, forKey: .id)
+        let name = try container.decode(String.self, forKey: .name)
+        self.init(id: id, name: name)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+    }
+
+    // MARK: - Hashable
+    static func == (lhs: Friend, rhs: Friend) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
