@@ -69,7 +69,7 @@ import SwiftUI
 import Foundation
 
 @Model
-final class User: Identifiable, Codable, Hashable {
+final class User: Identifiable, Hashable {
     var id: String
     var isActive: Bool
     var name: String
@@ -80,7 +80,9 @@ final class User: Identifiable, Codable, Hashable {
     var about: String
     var registered: Date
     var tags: [String]
-    var friends: [Friend]
+    
+    // If a User is deleted , the user's friends will also be deleted
+    @Relationship(deleteRule: .cascade) var friends: [Friend] = []
 
     init(id: String, isActive: Bool, name: String, age: Int, company: String, email: String, address: String, about: String, registered: Date, tags: [String], friends: [Friend]) {
         self.id = id
