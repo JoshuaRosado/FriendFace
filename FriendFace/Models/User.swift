@@ -68,6 +68,8 @@ import SwiftData
 import SwiftUI
 import Foundation
 
+
+// Upgrade, @Model class
 @Model
 final class User: Identifiable, Hashable {
     var id: String
