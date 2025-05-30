@@ -104,9 +104,14 @@ final class User: Identifiable,Decodable,Encodable, Hashable {
         case id, isActive, name, age, company, email, address, about, registered, tags, friends
     }
 
+    // Function that it customize how data is decoded
+    // Instance of the User type from  JSON
+    
     required convenience init(from decoder: Decoder) throws {
+        // Create a keyed container, that uses CodingKeys from enum, for mapping property names to keys
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
+        // Manually decoding all properties from User
         let id = try container.decode(String.self, forKey: .id)
         let isActive = try container.decode(Bool.self, forKey: .isActive)
         let name = try container.decode(String.self, forKey: .name)
@@ -122,9 +127,16 @@ final class User: Identifiable,Decodable,Encodable, Hashable {
         self.init(id: id, isActive: isActive, name: name, age: age, company: company, email: email, address: address, about: about, registered: registered, tags: tags, friends: friends)
     }
 
+    // Function that it customize how data is encoding
+    // Instance of the User type into a JSON
+    
     func encode(to encoder: Encoder) throws {
+        // Create a keyed container, that uses CodingKeys from enum, for mapping property names to keys
         var container = encoder.container(keyedBy: CodingKeys.self)
 
+        
+        // Manually encoding all properties of the User
+        
         try container.encode(id, forKey: .id)
         try container.encode(isActive, forKey: .isActive)
         try container.encode(name, forKey: .name)
@@ -138,10 +150,13 @@ final class User: Identifiable,Decodable,Encodable, Hashable {
         try container.encode(friends, forKey: .friends)
     }
 
-
+    //  Two User objects are considered equal if their id properties match
+    // This is useful for comparing users in collections, filtering,duplicates, etc
     static func == (lhs: User, rhs: User) -> Bool {
         lhs.id == rhs.id
     }
+    
+    // Defines how a User instance is hashed.
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)

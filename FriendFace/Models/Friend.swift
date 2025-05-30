@@ -19,7 +19,7 @@ final class Friend: Identifiable,Decodable,Encodable, Hashable {
         self.name = name
     }
 
-    // MARK: - Codable conformance
+
     enum CodingKeys: String, CodingKey {
         case id, name
     }
@@ -37,7 +37,7 @@ final class Friend: Identifiable,Decodable,Encodable, Hashable {
         try container.encode(name, forKey: .name)
     }
 
-    // MARK: - Hashable
+
     static func == (lhs: Friend, rhs: Friend) -> Bool {
         lhs.id == rhs.id
     }
