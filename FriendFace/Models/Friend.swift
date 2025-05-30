@@ -10,7 +10,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class Friend: Identifiable, Hashable {
+final class Friend: Identifiable,Decodable,Encodable, Hashable {
     var id: String
     var name: String
 

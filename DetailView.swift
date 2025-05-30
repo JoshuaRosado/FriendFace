@@ -42,7 +42,8 @@ struct DetailView: View {
                     
                     Text("Tags : \(user.tags)")
                     
-                    Text("Friends: \(user.friends)")
+                    // Need to extract name from the Array to be able to display it. 
+                    Text("Friends: \(user.friends.map(\.name))")
                     
                 }
                 .font(.subheadline)

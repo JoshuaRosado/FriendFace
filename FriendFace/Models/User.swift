@@ -71,7 +71,7 @@ import Foundation
 
 // Upgrade, @Model class
 @Model
-final class User: Identifiable, Hashable {
+final class User: Identifiable,Decodable,Encodable, Hashable {
     var id: String
     var isActive: Bool
     var name: String
